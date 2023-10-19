@@ -4,13 +4,14 @@ import { Container, Form, Title } from "./style";
 import { toast } from "react-toastify";
 import { useCart } from "../../contexts/cartContext";
 import { formatToCurrency } from "../../utils/utils";
+import { useNavigate } from "react-router-dom";
 
 export default function Payment() {
     const [paymentMethod, setPaymentMethod] = useState<string>('');
     const [name, setName] = useState<string>('');
     const [observation, setObservation] = useState<string>('');
-    const { getAllItems, getAddress, getTotalValue } = useCart();
-
+    const { getAllItems, getAddress, getTotalValue, clearCart } = useCart();
+    const navigate = useNavigate();
 
     const paymentOptions = [
         'Dinheiro',
@@ -29,8 +30,10 @@ export default function Payment() {
         toast('Por favor preencha o seu nome', {type: 'error'});
         return;
       }
-   
+      
+      clearCart();
       window.open(genereteLink(), '_blank')
+      navigate('/')
     }
 
     function genereteLink(){
@@ -46,9 +49,10 @@ ${
                 }
                 itemText += '\n------------------------\n';
                 return itemText;
-            })
+            }).join('')
 }
 Endereço: ${address.street}, ${address.number} ${address.complement}, Bairro ${address.neighborhood} - ${address.zipcode}
+Meio de pagamento: ${paymentMethod}
         `
 
         if(observation) link += `\nObservação: ${observation}\n`

@@ -49,7 +49,7 @@ export const CartProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
 
     function clearCart(){
         setItemsCart([]);
-        localStorage.setItem('@pedidos:itens-carrinho', '');
+        localStorage.removeItem('@pedidos:itens-carrinho');
     }
 
     function getNumberOfItems(){

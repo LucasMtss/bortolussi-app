@@ -10,7 +10,7 @@ export default function Header() {
   const navigate = useNavigate();
   return (
     <Container>
-        <img src={Logo} alt="Logo Bortolussi" onClick={() => navigate('/home')}/>
+        <img src={Logo} alt="Logo Bortolussi" onClick={() => navigate('/')}/>
         <ContainerCart onClick={() => navigate('/meu-carrinho')}>
           <img src={ShoppingCart} />
           <NumberOfItems>{getNumberOfItems()}</NumberOfItems>
