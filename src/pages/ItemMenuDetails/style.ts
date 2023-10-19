@@ -18,6 +18,7 @@ export const Title = styled.div`
     font-weight: bold;
     position: absolute;
     margin-top: 36px;
+    max-width: 1200px;
 `
 
 export const Image = styled.img`
