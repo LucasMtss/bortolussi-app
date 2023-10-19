@@ -10,7 +10,6 @@ function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/home" element={<Home/>}/>
         <Route path="/" element={<Home/>}/>
         <Route path="/meu-carrinho" element={<Cart/>}/>
         <Route path="/item-cardapio/:id" element={<ItemMenuDetails/>}/>
