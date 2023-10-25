@@ -23,6 +23,7 @@ export const Title = styled.div`
 
 export const Image = styled.img`
     width: 100%;
+    border-radius: 32px 32px 0 0;
     margin-bottom: -80px;
 `
 
